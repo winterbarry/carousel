@@ -1,6 +1,6 @@
 .carousel-container {
     position: relative;
-    width: 600px;
+    width: 700px;
     height: 400px;
     margin: auto;
     overflow: hidden; /* hide other images */
@@ -10,10 +10,9 @@
 
 .carousel-slides {
     display: flex;
-    width: 300%;
+    width: 400%;
     height: 100%;
-    transition: transform 0.3s ease-in-out;
-    transform: translateX(-3.4%);
+    transform: translateX(-5%);
 }
 
 .slide {
@@ -32,7 +31,7 @@
     top: 50%;
     z-index: 1;
     cursor: pointer;
-    transform: translateX(-20px) translateY(-10px);
+    transform: translateX(-15px) translateY(-10px);
 }
 
 .arrow-right {
@@ -40,7 +39,7 @@
     top: 50%;
     z-index: 1;
     cursor: pointer;
-    transform: translateX(593px) translateY(-10px);
+    transform: translateX(690px) translateY(-10px);
 }
 
 .carousel-dots {
