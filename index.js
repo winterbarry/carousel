@@ -30,6 +30,16 @@ btnPrev.addEventListener('click', () => {
   updateDots();
 });
 
+dots.forEach((dot, index) => {
+  dot.addEventListener('click', () => {
+    currentIndex = index;
+    slidesContainer.style.transition = 'transform 0.5s ease-in-out';
+    slidesContainer.style.transform =
+      `translateX(calc(${-slideWidth * currentIndex}px - 5%))`;
+    updateDots();
+  });
+});
+
 function updateDots() {
   dots.forEach((dot, index) => {
     if (index === currentIndex) {
