@@ -5,47 +5,45 @@ const btnNext = document.querySelector('.arrow-right');
 const dots = document.querySelectorAll('.dot');  
 
 let currentIndex = 0;  
-
-const slideWidth = slides[0].getBoundingClientRect().width;  
+const slideWidth = slides[0].getBoundingClientRect().width;
 
 btnNext.addEventListener('click', () => {
-  if (currentIndex >= slides.length - 1) return;
-
-  currentIndex++;
-  slidesContainer.style.transition = 'transform 0.5s ease-in-out';
-  slidesContainer.style.transform =
-    `translateX(calc(${-slideWidth * currentIndex}px - 5%))`;
-
-  updateDots();
+  currentIndex = (currentIndex + 1) % slides.length; // helps create a looping effect.
+  updateCarousel();
 });
 
 btnPrev.addEventListener('click', () => {
-  if (currentIndex <= 0) return;
+  currentIndex = (currentIndex - 1 + slides.length) % slides.length; // helps create a looping effect.
+  updateCarousel();
+});
 
-  currentIndex--;
+function updateCarousel() {
   slidesContainer.style.transition = 'transform 0.5s ease-in-out';
   slidesContainer.style.transform =
     `translateX(calc(${-slideWidth * currentIndex}px - 5%))`;
-
   updateDots();
-});
+}
 
+// update dot style
+function updateDots() {
+  dots.forEach((dot, index) => {
+    dot.innerHTML = (index === currentIndex) ? '&#9675;' : '&#9679;';
+  });
+}
+
+// update carousel with dot click
 dots.forEach((dot, index) => {
   dot.addEventListener('click', () => {
     currentIndex = index;
-    slidesContainer.style.transition = 'transform 0.5s ease-in-out';
-    slidesContainer.style.transform =
-      `translateX(calc(${-slideWidth * currentIndex}px - 5%))`;
-    updateDots();
+    updateCarousel();
   });
 });
 
-function updateDots() {
-  dots.forEach((dot, index) => {
-    if (index === currentIndex) {
-      dot.innerHTML = '&#9675;'; 
-    } else {
-      dot.innerHTML = '&#9679;'; 
-    }
-  });
+function autoAdvanceSlides() {
+  setInterval(() => {
+    currentIndex = (currentIndex + 1) % slides.length;
+    updateCarousel();
+  }, 5000); // 5 seconds
 }
+
+autoAdvanceSlides();
