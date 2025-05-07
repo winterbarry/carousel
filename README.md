@@ -12,12 +12,9 @@ A simple, responsive image carousel built with **HTML**, **CSS**, and **JavaScri
 
 ## Project Structure
 
-carousel-project/
-│
-├── index.html        # Main HTML file with the carousel structure
-├── style.css         # Styles for layout, transitions, and responsiveness
-├── index.js          # JavaScript for interactivity (slide movement, dots)
-├── /images           # Folder containing your .jpg or .png slide images
+- index.html        # Main HTML file with the carousel structure
+- style.css         # Styles for layout, transitions, and responsiveness
+- index.js          # JavaScript for interactivity (slide movement, dots)
 
 ## How It Works
 
